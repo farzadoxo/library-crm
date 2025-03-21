@@ -1,8 +1,9 @@
-namespace Domain.Entities
+using Domain.Entities;
+
+namespace Application.DTOs.Book
 {
-    public class Book
+    public class AddBookDTO
     {
-        public int Id { get; set; }
         public string? Title { get; set; }
         public List<Auther>? Authers { get; set; }
         public DateTime PublishDate { get; set; }

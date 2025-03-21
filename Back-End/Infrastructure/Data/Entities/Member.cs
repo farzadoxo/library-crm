@@ -1,11 +1,10 @@
-namespace Domain.Entities
+namespace Infrastructure.Data.Entities
 {
-    public class Account
+    public class Member
     {
         public int Id { get; set; }
-
         string? FullName { get; set; }
-        string? Role { get; set; }
         DateTime BirthDate { get; set; }
+        public List<Library>? Libraries { get; set; }
     }
 }
