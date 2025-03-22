@@ -1,4 +1,4 @@
-namespace Infrastructure.Data.Entities
+namespace Domain.Entities
 {
     public class Lend
     {

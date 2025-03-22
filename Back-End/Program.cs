@@ -1,4 +1,6 @@
+using Application.Interfaces.Repository;
 using Infrastructure.Data.Contexts;
+using Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<LibraryContext>();
+builder.Services.AddScoped<IBookRepository,BookRepository>();
 
 var app = builder.Build();
 

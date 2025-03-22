@@ -13,6 +13,12 @@ namespace Application.Interfaces.Repository
 
         // CRUD Book
         Book Add(AddBookDTO dto);
+        void Delete(int bookId);
+        Book Update(int bookID,UpdateBookDTO dto);
+
+        // Oprator
+        void DeactiveBook(int bookId);
+        
 
     }
 }
