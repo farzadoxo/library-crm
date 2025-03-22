@@ -7,9 +7,6 @@ namespace Application.Interfaces.Repository
     {
         // Find Book
         Book FindBook(int bookId);
-        List<Book> FindBooksByAuther(int autherId);
-        List<Book> FindBooksByTopic(int topicId);
-        List<Book> FindBooksByLibrary(int libraryId);
 
         // CRUD Book
         Book Add(AddBookDTO dto);
