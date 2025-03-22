@@ -1,15 +1,17 @@
-namespace Domain.Entities
+using Domain.Entities;
+
+namespace Application.DTOs.Book
 {
-    public class Book
+
+    public class UpdateBookDTO
     {
-        public int Id { get; set; }
         public string? Title { get; set; }
-        public Auther? Auther { get; set; }
+        public List<Auther>? Authers { get; set; }
         public DateTime PublishDate { get; set; }
         public Publisher? Publisher { get; set; }
         public decimal Price { get; set; }
         public double Edition { get; set; }
+        public int Tiraj { get; set; }
         public BookTopic? Topic { get; set; }
-        public bool IsActive { get; set; }
     }
 }
