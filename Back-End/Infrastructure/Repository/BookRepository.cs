@@ -42,6 +42,27 @@ namespace Infrastructure.Repository
             }
         }
 
+        public IQueryable FindBooksByAuther(int autherId)
+        {
+            var books = _db.Books.Select(x => x.AutherId == autherId);
+            return books;
+        }
+
+
+        public IQueryable FindBooksByTopic(int topicId)
+        {
+            var books = _db.Books.Select(x => x.TopicId == topicId);
+            return books;
+        }
+
+
+
+        public IQueryable FindBooksByPublisher(int publisherId)
+        {
+            var books = _db.Books.Select(x => x.PublisherId == publisherId);
+            return books;
+        }
+
 
         public Book Add(AddBookDTO dto)
         {
@@ -77,8 +98,16 @@ namespace Infrastructure.Repository
         public void Delete(int bookId)
         {
             var book = _db.Books.Find(bookId);
-            _db.Books.Remove(book);
-            _db.SaveChanges();
+            if(book != null)
+            {
+                _db.Books.Remove(book);
+                _db.SaveChanges();
+            }
+            else
+            {
+                return;
+            }
+            
         }
 
 
@@ -89,6 +118,40 @@ namespace Infrastructure.Repository
             {
                 book.IsActive = false;
                 _db.SaveChanges();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+
+        public void Update(int bookId,UpdateBookDTO dto)
+        {
+            var book = _db.Books.Find(bookId);
+            if(book !=  null)
+            {
+                if(dto.Title != null && book.Title != dto.Title)
+                    book.Title = dto.Title;
+                else if(dto.AutherId != null && book.AutherId != dto.AutherId)
+                    book.AutherId = dto.AutherId;
+                else if(dto.PublishDate != null && book.PublishDate != dto.PublishDate)
+                    book.PublishDate = dto.PublishDate;
+                else if(dto.PublisherId != null && book.PublisherId != dto.PublisherId)
+                    book.PublisherId = dto.PublisherId;
+                else if(dto.Price != null && book.Price != dto.Price)
+                    book.Price = dto.Price;
+                else if(dto.Edition != null && book.Edition != dto.Edition)
+                    book.Edition = dto.Edition;
+                else if(dto.TopicId != null && book.TopicId != dto.TopicId)
+                    book.TopicId = dto.TopicId;
+                
+                _db.SaveChanges();
+                
+            }
+            else
+            {
+                return;
             }
         }
 
