@@ -6,8 +6,8 @@ namespace Application.Interfaces.Repository
     public interface IMemberRepository
     {
         Member FindMember(int memberId);
-        Member Register(ReqgisterDTO dto);
+        Member Register(RegisterDTO dto);
         void Delete(int memberId);
-        Member Update(int memberId,UpdateMemberDTO dto);
+        void Update(int memberId,UpdateMemberDTO dto);
     }
 }

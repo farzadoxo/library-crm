@@ -7,11 +7,14 @@ namespace Application.Interfaces.Repository
     {
         // Find Book
         Book FindBook(int bookId);
+        IQueryable FindBooksByAuther(int autherId);
+        IQueryable FindBooksByTopic(int topicId);
+        IQueryable FindBooksByPublisher(int publisherId);
 
         // CRUD Book
         Book Add(AddBookDTO dto);
         void Delete(int bookId);
-        Book Update(int bookID,UpdateBookDTO dto);
+        void Update(int bookID,UpdateBookDTO dto);
 
         // Oprator
         void DeactiveBook(int bookId);
