@@ -9,6 +9,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<LibraryContext>();
 builder.Services.AddScoped<IBookRepository,BookRepository>();
+builder.Services.AddScoped<IMemberRepository,MemberRepository>();
 
 var app = builder.Build();
 
