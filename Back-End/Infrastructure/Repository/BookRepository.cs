@@ -140,7 +140,7 @@ namespace Infrastructure.Repository
                 else if(dto.PublisherId != null && book.PublisherId != dto.PublisherId)
                     book.PublisherId = dto.PublisherId;
                 else if(dto.Price != null && book.Price != dto.Price)
-                    book.Price = dto.Price;
+                    book.Price = dto.Price; 
                 else if(dto.Edition != null && book.Edition != dto.Edition)
                     book.Edition = dto.Edition;
                 else if(dto.TopicId != null && book.TopicId != dto.TopicId)
