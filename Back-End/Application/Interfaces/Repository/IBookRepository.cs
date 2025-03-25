@@ -6,6 +6,7 @@ namespace Application.Interfaces.Repository
     public interface IBookRepository
     {
         // Find Book
+        List<Book> GetBooks(int skip , int take);
         Book FindBook(int bookId);
         IQueryable FindBooksByAuther(int autherId);
         IQueryable FindBooksByTopic(int topicId);
