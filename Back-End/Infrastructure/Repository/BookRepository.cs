@@ -15,6 +15,25 @@ namespace Infrastructure.Repository
         }
 
 
+        public List<Book> GetBooks(int skip , int take)
+        {
+            var books = _db.Books.Select(x => new Book
+            {
+                Id = x.Id,
+                Title = x.Title,
+                AutherId = x.AutherId,
+                PublishDate = x.PublishDate,
+                PublisherId = x.PublisherId,
+                Price = x.Price,
+                Edition = x.Edition,
+                TopicId = x.TopicId,
+                IsActive = x.IsActive
+            }).Take(take).Skip(skip).ToList();
+
+            return books;
+        }
+
+
         public Book FindBook(int bookId)
         {
             var book = _db.Books.Find(bookId);
