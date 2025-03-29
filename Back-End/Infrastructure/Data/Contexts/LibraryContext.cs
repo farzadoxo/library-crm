@@ -23,6 +23,7 @@ namespace Infrastructure.Data.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-ESI5723; Initial Catalog=Libray; Integrated Security=true; TrustServerCertificate=True");
         }
 
 
