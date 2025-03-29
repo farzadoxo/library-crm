@@ -174,5 +174,19 @@ namespace Infrastructure.Repository
             }
         }
 
+        public void ActiveBook(int bookId)
+        {
+            var book = _db.Books.Find(bookId);
+            if(book != null)
+            {
+                book.IsActive = true;
+                _db.SaveChanges();
+            }
+            else
+            {
+                return;
+            }
+        }
+
     }
 }

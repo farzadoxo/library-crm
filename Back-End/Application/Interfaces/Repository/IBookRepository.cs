@@ -19,6 +19,7 @@ namespace Application.Interfaces.Repository
 
         // Oprator
         void DeactiveBook(int bookId);
+        void ActiveBook(int bookId);
         
 
     }
