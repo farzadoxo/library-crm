@@ -10,11 +10,6 @@ namespace Peresentation.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-        [HttpGet("FindBook/{bookId}")]
-        public IActionResult FindBook(int bookId)
-        {
-            
-        }
 
     }
-}
+}   
