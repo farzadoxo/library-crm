@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddDbContext<LibraryContext>(option=>option.UseSqlServer("Data Source=DESKTOP-ESI5723; Initial Catalog=Libray; Integrated Security=true; TrustServerCertificate=True"));
+builder.Services.AddDbContext<LibraryContext>();
 builder.Services.AddScoped<IBookRepository,BookRepository>();
 builder.Services.AddScoped<IMemberRepository,MemberRepository>();
 
