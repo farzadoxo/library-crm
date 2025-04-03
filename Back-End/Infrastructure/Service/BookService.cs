@@ -101,6 +101,14 @@ namespace Infrastructure.Service
             }
         }
 
+        public async Task<BookOprationResult> UpdateBook(int bookId , UpdateBookDTO dto)
+        {
+            _repo.Update(bookId,dto);
+
+            var book = _repo.FindBook(bookId);
+            return BookOprationResult.Success(message:"Book updated succesfully !", request:book);
+        }
+
 
     }
 }
