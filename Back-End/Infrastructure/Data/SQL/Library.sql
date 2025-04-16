@@ -1,10 +1,12 @@
--- Config
+-->------- Config Database -------<--
 
 CREATE DATABASE Library;
-
+GO
 USE Library;
 GO
 
+
+-->------- Create tables -------<--
 
 CREATE TABLE Books
 (
