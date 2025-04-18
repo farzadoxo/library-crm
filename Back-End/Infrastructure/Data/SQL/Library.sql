@@ -165,3 +165,72 @@ AS
 BEGIN 
     UPDATE Books SET IsActive = TRUE WHERE Id = bookId;
 END
+
+
+CREATE PROCEDURE UpdateBook
+(
+    @bookId INT
+    @title NVARCHAR(100)
+    @autherId INT
+    @publishDate DATETIME
+    @publisherId INT
+    @price DECIMAL
+    @Edition FLOAT
+    @topicId INT
+)
+AS
+BEGIN
+    UPDATE Books SET Title = title , AutherID = autherId , PublishDate = publishDate,
+    PublisherId = publisherId , Price = price , [Edition] = [edition] , TopicId = topicId 
+    WHERE Id = bookId;
+END
+
+
+
+
+-->------- Book Section -------<--
+
+CREATE PROCEDURE Register
+(
+    @fullName NVARCHAR(30)
+    @birthDate DATETIME
+)
+AS 
+BEGIN 
+    INSERT INTO Members VALUES(fullName,birthDate);
+END
+
+
+CREATE PROCEDURE FindMember
+(
+    @id INT
+)
+AS 
+BEGIN
+    SELECT * FROM Members WHERE Id = id;
+END
+
+
+CREATE PROCEDURE DeleteMember
+(
+    @id INT
+)
+AS 
+BEGIN
+    DELETE FROM Members WHERE Id = id;
+END
+
+
+CREATE PROCEDURE UpdateMember
+(
+    @id INT
+    @fullName NVARCHAR(40)
+    @birthDate DATETIME
+)
+AS 
+BEGIN
+    UPDATE Members SET FullName = fullName , BirthDate = birthDate WHERE Id = id;
+END
+
+
+-- wait
