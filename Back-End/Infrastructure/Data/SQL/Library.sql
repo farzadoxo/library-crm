@@ -188,7 +188,7 @@ END
 
 
 
--->------- Book Section -------<--
+-->------- Member Section -------<--
 
 CREATE PROCEDURE Register
 (
