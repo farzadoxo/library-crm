@@ -262,4 +262,3 @@ BEGIN
     INSERT INTO BookLend VALUES (BookId=bookId,LendId=lendId);
 END
 
-
