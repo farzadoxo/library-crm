@@ -30,7 +30,7 @@ CREATE TABLE Members
 )
 
 
-CREATE TABLE Auther
+CREATE TABLE Authers
 (
     Id INT PRIMARY KEY ,
     FullName NVARCHAR(40)
@@ -38,7 +38,7 @@ CREATE TABLE Auther
 
 
 
-CREATE TABLE Publisher
+CREATE TABLE Publishers
 (
     Id INT PRIMARY KEY ,
     [Name] NVARCHAR(30) 
@@ -46,21 +46,24 @@ CREATE TABLE Publisher
 
 
 
-CREATE TABLE Lend
+CREATE TABLE Lends
 (
     Id INT PRIMARY KEY ,
     OwnerId INT ,
     StartDate DATETIME ,
     EndDate DATETIME ,
     IsActive BOOLEAN ,
+    FOREIGN KEY (OwnerId) REFERENCES Members(Id)
 )
 
 
 CREATE TABLE BookLend
 (
     Id INT PRIMARY KEY , 
-    LenId INT ,
-    BookId INT
+    LendId INT ,
+    BookId INT,
+    FOREIGN KEY (LendId) REFERENCES Lend(Id),
+    FOREIGN KEY (BookId) REFERENCES Books(Id)
 )
 
 
@@ -233,4 +236,31 @@ BEGIN
 END
 
 
--- wait
+-->------- Lend Section -------<--
+
+
+CREATE PROCEDURE CreateLend
+(
+    @ownerId INT,
+    @startDate DATETIME,
+    @endDate DATETIME,
+    @isActive BOOLEAN
+)
+AS
+BEGIN
+    INSERT INTO Lends VALUES (OwnerId=ownerId,StartDate=startDate,EndDate=EndDate,IsActive=isActive);
+END
+
+
+CREATE PROCEDURE CreateLendBooks
+(
+    @bookId INT,
+    @lendId INT
+)
+AS 
+BEGIN
+    INSERT INTO BookLend VALUES (BookId=bookId,LendId=lendId);
+END
+
+
+CREATE PROCEDURE
