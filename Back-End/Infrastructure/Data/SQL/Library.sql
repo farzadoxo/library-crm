@@ -19,6 +19,10 @@ CREATE TABLE Books
     [Edition] FLOAT , 
     TopicId INT , 
     IsActive BOOLEAN
+
+    FOREIGN KEY AutherID REFERENCES Authers(Id)
+    FOREIGN KEY publisherId REFERENCES Publishers(Id)
+    FOREIGN KEY TopicId REFERENCES Topics(Id)
 )
 
 
@@ -64,6 +68,13 @@ CREATE TABLE BookLend
     BookId INT,
     FOREIGN KEY (LendId) REFERENCES Lend(Id),
     FOREIGN KEY (BookId) REFERENCES Books(Id)
+)
+
+
+CREATE TABLE Topics
+(
+    Id INT PRIMARY KEY,
+    Title NVARCHAR(20)
 )
 
 
@@ -261,4 +272,3 @@ AS
 BEGIN
     INSERT INTO BookLend VALUES (BookId=bookId,LendId=lendId);
 END
-
